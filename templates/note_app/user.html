@@ -8,32 +8,17 @@
     <title>Create a username</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcom to the world</h1>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">@</span>
-            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-          </div>
-          
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <span class="input-group-text" id="basic-addon2">@example.com</span>
-          </div>
-          
-          <label for="basic-url" class="form-label">Your vanity URL</label>
-         
-          
-         
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Firstname" aria-label="Username">
-            <span class="input-group-text">##</span>
-            <input type="text" class="form-control" placeholder="Familyname" aria-label="Familyname">
-          </div>
-          
-          <div class="input-group">
-            <span class="input-group-text">Any Note</span>
-            <textarea class="form-control" aria-label="With textarea"></textarea>
-          </div>
-    </div>
+    <section></section>
+    <section>
+        <h1>Pleas Enter your info</h1>
+        <div class="container">
+            <form method="POST">
+                {{intohtml.as_p}}
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+        </div>
+    </section>
+
 </body>
 </html>
