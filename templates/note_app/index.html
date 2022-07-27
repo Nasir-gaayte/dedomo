@@ -9,5 +9,20 @@
 </head>
 <body>
     <h1>Hello world</h1>
+     <ol>
+        {% if intohtml %}
+        <ol>
+            {% for x in intohtml%}
+            <h1> ^User Info</h1> 
+            <li>{{ x.username}}</li>
+            <li>{{x.email}}</li>
+            <li>{{x.first}}</li>
+            <li>{{x.family}}</li>
+            <li>{{x.note}}</li>
+           
+            {% endfor%}
+        </ol>
+        {% endif %}
+     </ol>
 </body>
 </html>

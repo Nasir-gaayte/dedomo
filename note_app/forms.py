@@ -1,11 +1,10 @@
-from django import froms
-from note_app.models import Users
+from django import forms
+from note_app.models import Users_model
+from django.core import validators
 
 
-
-class UserData(ModelForm):
-    class Mata():
-        data = Users()
-        field = '__all__'
-        
+class UserData(forms.ModelForm):
+    class Meta():
+        model = Users_model
+        fields = ['username', 'email', 'first', 'family', 'note']
         

@@ -1,26 +1,29 @@
 from django.shortcuts import render
-from requests import request
-from note_app.models import Users
+from note_app.models import Users_model
+from note_app.forms import UserData
+from django.core  import validators
+
 
 
 # Create your views here.
 
 def index(request):
-    data = Users.objects.order_by('username')
+    data = Users_model.objects.order_by('username')
     dict = {'intohtml': data}
-    return render(request, 'note_app/index.html', content_type=dict)
+    return render(request, 'note_app/index.html', context=dict)
 
 
 def user_view(request):
-    form = Users()
+    form_data = UserData()
     if request.method == 'POST':
-        form = Users(request.POST)
-        if form.is_valid():
-            form.save(commit=True)
+        form_data = UserData(request.POST)
+        
+        if form_data.is_valid():
+            form_data.save(commit=True)
             return index(request)
         else:
             print("ErrOr")
     
-    return render(request, 'note_app/user.html')
+    return render(request, 'note_app/user.html', {'gogit': form_data})
 
     
